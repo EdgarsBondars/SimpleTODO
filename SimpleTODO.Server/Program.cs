@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SimpleTODO.Server.Logic;
 
 namespace SimpleTODO.Server
 {
@@ -19,6 +20,8 @@ namespace SimpleTODO.Server
             {
                 options.UseSqlServer("Server=localhost;Database=prioritymaster;Trusted_Connection=True;TrustServerCertificate=True;");
             });
+
+            builder.Services.AddTransient<IToDoLogic, ToDoLogic>();
 
             builder.Services.AddCors(options =>
             {
